@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>WeatherCheck</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/geolocation.js"></script>
+    <script src="js/weather.js"></script>
+    <script src="utils/conditions.json" type="application/json" id="conditions"></script>
+    <script src="https://kit.fontawesome.com/25c0cc57ad.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div class="p-5 bg-success text-white text-center back-div">
+            <h1>Como está o clima?</h1>
+            <h2>Não se acanhe é simples de se utilizar!</h2>
+        </div>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="https://yurinogueira.dev.br">Projetos</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">GC</a>
+                        </li>
+                    </ul>
+                    <form class="d-flex">
+                        <input class="form-control me-2"
+                               id="searchInput"
+                               type="text"
+                               placeholder="Buscar ´cidade´ ou ´long,lat´"
+                               aria-label="Search">
+                        <button class="btn btn-outline-success rounded-circle" type="button" onclick="searchWeather()">
+                            <i class="fa-solid fa-magnifying-glass" aria-label="Buscar"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-sm-8">
+                    <div class="card mb-4" id="weatherBasicCard">
+                        <h3 class="card-header card-weather-style" id="cityDetail"></h3>
+                        <div class="card-body d-flex">
+                            <h1 class="card-title flex-fill justify-content-start" id="tempStatus"></h1>
+                            <div class="card-title d-flex flex-fill justify-content-end" id="tempIcon"></div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h4 class="card-header" id="weatherDetail"></h4>
+                        <div class="card-body">
+                            <h1 class="card-title" id="thermalSensation"></h1>
+                            <p>Sensação térmica</p>
+                            <hr>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="row justify-content-between" id="humidityInfo"></div>
+                                        <hr>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="row justify-content-between" id="windKmInfo"></div>
+                                        <hr>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="row justify-content-between" id="pressureInfo"></div>
+                                        <hr>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="row justify-content-between" id="precipitationInfo"></div>
+                                        <hr>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="card mb-3">
+                        <h3 class="card-header">Sua Geolocalização</h3>
+                        <div class="card-body">
+                            <h5 class="card-title" id="geoMessage"></h5>
+                        </div>
+                    </div>
+                    <div class="card mt-2fa">
+                        <h3 class="card-header">Sobre</h3>
+                        <div class="card-body">
+                            <p>
+                                Esse site foi feito utilizando HTML, CSS e Javascript.
+                                <hr>
+                                Foi utilizado o framework
+                                <a href="https://getbootstrap.com/">Bootstrap 5.2</a>
+                                para lidar com a responsividade.
+                                <hr>
+                                Para realizar as consultas foi utilizado a API
+                                <a href="https://www.weatherapi.com/docs/">WeatherAPI</a>
+                                que foi tratada por um backend
+                                <a href="https://github.com/yurinogueira/bar-management-api">(bm-api)</a>
+                                criado utilizando o framework
+                                <a href="https://www.djangoproject.com/">Django</a>
+                                e hospedado utilizando
+                                <a href="https://www.heroku.com/">Heroku</a>.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="mt-5 p-5 bg-dark text-white text-center">
+        <p>
+            Copyright © 2022 <strong>Yuri Nogueira Moreira da Silva</strong>
+        </p>
+        <a class="btn btn-outline-success btn-social mx-3" target="_blank" href="https://www.linkedin.com/in/yuri-nogueira-moreira-da-silva/">
+            <i class="fab fa-fw fa-linkedin" aria-label="LinkedIn"></i>
+        </a>
+        <a class="btn btn-outline-success btn-social mx-3" target="_blank" href="https://github.com/yurinogueira/">
+            <i class="fab fa-fw fa-github" aria-label="Github Pessoal"></i>
+        </a>
+        <a class="btn btn-outline-success btn-social mx-3" target="_blank" href="https://github.com/EterniaServer/">
+            <i class="fab fa-fw fa-github" aria-label="Github EterniaServer"></i>
+        </a>
+    </footer>
+</body>
+</html>
