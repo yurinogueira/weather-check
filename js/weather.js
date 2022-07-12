@@ -27,6 +27,7 @@ function searchWeather() {
 function getWeatherStatus(search) {
     console.log(`Call Weather API: ${Date.now()}`)
 
+    search = search.normalize("NFD").replace(/\p{Diacritic}/gu, "");
     const url = `https://yn-bm.herokuapp.com/core/weather/search/?city=${search}`;
     fetchAsync(url).then(data => {
         const weatherData = data["weatherData"];
